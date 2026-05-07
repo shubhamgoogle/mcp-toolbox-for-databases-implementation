@@ -1,0 +1,74 @@
+sources:
+  companies-demo:
+    kind: neo4j
+    uri: ${NEO4J_URI}
+    user: ${NEO4J_USER}
+    password: ${NEO4J_PASSWORD}
+    database: ${NEO4J_DATABASE}
+
+tools:
+  get-schema:
+    kind: neo4j-schema
+    source: companies-demo
+    description: "Extracts the database schema."
+
+  get-node-data:
+    kind: neo4j-cypher
+    source: companies-demo
+    statement: |
+      MATCH (n {name: $name})
+      RETURN properties(n) as node_properties,
+             [(n)-[r]-(m) | {
+               rel_type: type(r),
+               rel_props: properties(r),
+               target_labels: labels(m),
+               target_props: properties(m)
+             }] as connections
+    description: "Reads the data of a node by name, including its properties and connections."
+    parameters:
+      - name: name
+        type: string
+        description: "The name of the node."
+
+  locate-node:
+    kind: neo4j-cypher
+    source: companies-demo
+    statement: |
+      MATCH (n)
+      WHERE any(key IN keys(n) WHERE n[key] = $value)
+      RETURN n, labels(n) as labels
+      LIMIT 10
+    description: "Search for nodes containing a specific property value."
+    parameters:
+      - name: value
+        type: string
+        description: "The value to search for."
+
+  get-nodes-by-label:
+    kind: neo4j-cypher
+    source: companies-demo
+    statement: |
+      MATCH (n)
+      WHERE $label IN labels(n)
+      RETURN n, properties(n) as props
+      LIMIT 20
+    description: "Get nodes by label."
+    parameters:
+      - name: label
+        type: string
+        description: "The label of the nodes."
+
+  traverse-node:
+    kind: neo4j-cypher
+    source: companies-demo
+    statement: |
+      MATCH (n)-[r]->(m)
+      WHERE n.name = $name
+      RETURN type(r) as rel_type, properties(r) as rel_props, m as neighbor, labels(m) as neighbor_labels
+    description: "Traverse edges from a node by name."
+    parameters:
+      - name: name
+        type: string
+        description: "The name of the starting node."
+
+

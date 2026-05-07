@@ -1,0 +1,25 @@
+sources:
+  knowledge-catalog-source:
+    kind: dataplex
+    project: ${PROJECT_ID}
+
+tools:
+  lookup_context:
+    kind: dataplex-lookup-context
+    source: knowledge-catalog-source
+    description: "Lookup metadata for resources in Google Cloud Knowledge Catalog (formerly Dataplex) based on context like GCP resource names or paths."
+
+  lookup_entry:
+    kind: dataplex-lookup-entry
+    source: knowledge-catalog-source
+    description: "Retrieve the metadata details of a specific entry in Google Cloud Knowledge Catalog (formerly Dataplex) by its unique name."
+
+  search_aspect_types:
+    kind: dataplex-search-aspect-types
+    source: knowledge-catalog-source
+    description: "Search for aspect types relevant to the query in Google Cloud Knowledge Catalog (formerly Dataplex)."
+
+  search_entries:
+    kind: dataplex-search-entries
+    source: knowledge-catalog-source
+    description: "Search for entries (like tables, views, datasets, models) based on the provided query in Google Cloud Knowledge Catalog (formerly Dataplex)."
