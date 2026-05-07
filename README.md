@@ -73,4 +73,4 @@ chmod +x deploy.sh
 ## 🔗 Documentation & References
 
 - [Model Context Protocol (MCP) Specification](https://modelcontextprotocol.io)
-- [Google GenAI Toolbox Documentation](https://storage.googleapis.com/genai-toolbox/v0.1.0/index.html)
+- [Google MCP Toolbox Documentation](https://mcp-toolbox.dev/documentation/introduction/)
