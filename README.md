@@ -1,6 +1,6 @@
 # MCP Toolboxes for Databases Implementation
 
-This repository contains a suite of **Model Context Protocol (MCP)** toolboxes implementation powered by [Google GenAI Toolbox](https://github.com/googleapis/mcp-toolbox). These toolboxes allow Large Language Models (LLMs) and AI agents to safely and securely query, navigate, and reason over structured and semi-structured database/catalog systems.
+This repository contains a suite of **Model Context Protocol (MCP)** toolboxes implementation powered by [Google MCP Toolbox](https://github.com/googleapis/mcp-toolbox). These toolboxes allow Large Language Models (LLMs) and AI agents to safely and securely query, navigate, and reason over structured and semi-structured database/catalog systems.
 
 ---
 
