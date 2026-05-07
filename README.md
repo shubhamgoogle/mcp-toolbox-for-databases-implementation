@@ -12,7 +12,7 @@ The project is divided into three dedicated directories:
 | :--- | :--- | :--- |
 | [knowledge-catalog/](file:///Users/shubu/Documents/github_repo/mcp-toolbox-for-databases-implementation/knowledge-catalog) | Knowledge Catalog metadata lookups & resource searches. | GCP Dataplex (Knowledge Catalog) |
 | [looker-mcp-toolbox/](file:///Users/shubu/Documents/github_repo/mcp-toolbox-for-databases-implementation/looker-mcp-toolbox) | Business Intelligence explores, queries, dashboards, and LookML models. | Looker Analytics Platform |
-| [ne04j-mcp-toolbox/](file:///Users/shubu/Documents/github_repo/mcp-toolbox-for-databases-implementation/ne04j-mcp-toolbox) | Schema inspection, node/relationship search, and Cypher traversal. | Neo4j Graph Database |
+| [neo4j-mcp-toolbox/](file:///Users/shubu/Documents/github_repo/mcp-toolbox-for-databases-implementation/neo4j-mcp-toolbox) | Schema inspection, node/relationship search, and Cypher traversal. | Neo4j Graph Database |
 
 ---
 
@@ -34,7 +34,7 @@ For each toolbox you plan to run or deploy:
 
 1. Navigate into the toolbox folder:
    ```bash
-   cd ne04j-mcp-toolbox  # Replace with knowledge-catalog or looker-mcp-toolbox
+   cd neo4j-mcp-toolbox  # Replace with knowledge-catalog or looker-mcp-toolbox
    ```
 
 2. Copy the example environment file:

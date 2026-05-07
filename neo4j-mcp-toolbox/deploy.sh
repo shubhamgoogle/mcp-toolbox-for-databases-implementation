@@ -31,7 +31,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 gcloud secrets create neo4j-tools --data-file=neo4j-tools.yaml
 
-gcloud run deploy ne04j-toolbox \
+gcloud run deploy neo4j-toolbox \
     --image $IMAGE \
     --service-account neo4j-toolbox-identity \
     --region $REGION \
