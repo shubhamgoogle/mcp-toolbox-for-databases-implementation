@@ -25,6 +25,18 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member serviceAccount:kc-toolbox-identity@$PROJECT_ID.iam.gserviceaccount.com \
     --role roles/secretmanager.secretAccessor
 
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member serviceAccount:kc-toolbox-identity@$PROJECT_ID.iam.gserviceaccount.com \
+    --role roles/datacatalog.viewer
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member serviceAccount:kc-toolbox-identity@$PROJECT_ID.iam.gserviceaccount.com \
+    --role roles/dataplex.catalogViewer
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member serviceAccount:kc-toolbox-identity@$PROJECT_ID.iam.gserviceaccount.com \
+    --role roles/dataplex.viewer
+
 gcloud secrets create kc-tools --data-file=kc-tools.yaml
 
 gcloud run deploy kc-toolbox \
