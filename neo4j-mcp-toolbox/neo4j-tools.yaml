@@ -17,12 +17,12 @@ tools:
     source: companies-demo
     statement: |
       MATCH (n {name: $name})
-      RETURN properties(n) as node_properties,
+      RETURN n{.*, embedding: null, embeddings: null} as node_properties,
              [(n)-[r]-(m) | {
                rel_type: type(r),
                rel_props: properties(r),
                target_labels: labels(m),
-               target_props: properties(m)
+               target_props: m{.*, embedding: null, embeddings: null}
              }] as connections
     description: "Reads the data of a node by name, including its properties and connections."
     parameters:
@@ -36,7 +36,7 @@ tools:
     statement: |
       MATCH (n)
       WHERE any(key IN keys(n) WHERE n[key] = $value)
-      RETURN n, labels(n) as labels
+      RETURN n{.*, embedding: null, embeddings: null} as n, labels(n) as labels
       LIMIT 10
     description: "Search for nodes containing a specific property value."
     parameters:
@@ -50,7 +50,7 @@ tools:
     statement: |
       MATCH (n)
       WHERE $label IN labels(n)
-      RETURN n, properties(n) as props
+      RETURN n{.*, embedding: null, embeddings: null} as n, n{.*, embedding: null, embeddings: null} as props
       LIMIT 20
     description: "Get nodes by label."
     parameters:
@@ -64,7 +64,7 @@ tools:
     statement: |
       MATCH (n)-[r]->(m)
       WHERE n.name = $name
-      RETURN type(r) as rel_type, properties(r) as rel_props, m as neighbor, labels(m) as neighbor_labels
+      RETURN type(r) as rel_type, properties(r) as rel_props, m{.*, embedding: null, embeddings: null} as neighbor, labels(m) as neighbor_labels
     description: "Traverse edges from a node by name."
     parameters:
       - name: name
